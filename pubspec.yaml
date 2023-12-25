@@ -30,6 +30,7 @@ environment:
 dependencies:
   http: ^1.1.2
   fl_chart: ^0.65.0
+  csv: ^5.1.1
   flutter:
     sdk: flutter
 

@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:uae_gold_rates/models/csvData.dart';
 import './../utils/constants.dart' as constants;
 
 class CsvService {
@@ -10,6 +11,9 @@ class CsvService {
         // Implement CSV parsing logic here
         // Return a list of Map or a custom model containing the price rates
         print(response.body);
+
+        List<csvData> dataList = csvData.parseCsvToCsvData(response.body);
+        print(dataList);
         return [];/* List of extracted price rates */;
       } else {
         throw Exception('Failed to fetch data');
