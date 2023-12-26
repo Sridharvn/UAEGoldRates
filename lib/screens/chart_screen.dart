@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
+import 'package:uae_gold_rates/models/csvData.dart';
 import '../services/data_handler_service.dart';
 
 class LineGraphScreen extends StatefulWidget {
@@ -9,7 +10,7 @@ class LineGraphScreen extends StatefulWidget {
 
 class _LineGraphScreenState extends State<LineGraphScreen> {
   final CsvService csvService = CsvService();
-  List<Map<String, dynamic>> priceRates = [];
+  List<csvData> priceRates = [];
 
   @override
   void initState() {
@@ -19,7 +20,7 @@ class _LineGraphScreenState extends State<LineGraphScreen> {
 
   Future<void> fetchData() async {
     try {
-      List<Map<String, dynamic>> data = await csvService.fetchPriceRates();
+      List<csvData> data = await csvService.fetchPriceRates();
       setState(() {
         priceRates = data;
       });

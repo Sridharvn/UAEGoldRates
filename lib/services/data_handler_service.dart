@@ -3,7 +3,7 @@ import 'package:uae_gold_rates/models/csvData.dart';
 import './../utils/constants.dart' as constants;
 
 class CsvService {
-  Future<List<Map<String, dynamic>>> fetchPriceRates() async {
+  Future<List<csvData>> fetchPriceRates() async {
     try {
       final response = await http.get(Uri.parse(constants.csvLocation));
       if (response.statusCode == 200) {
@@ -13,8 +13,8 @@ class CsvService {
         print(response.body);
 
         List<csvData> dataList = csvData.parseCsvToCsvData(response.body);
-        print(dataList);
-        return [];/* List of extracted price rates */;
+        print(dataList.map((e) => e.evening));
+        return dataList;/* List of extracted price rates */;
       } else {
         throw Exception('Failed to fetch data');
       }
