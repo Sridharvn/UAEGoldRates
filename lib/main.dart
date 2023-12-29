@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uae_gold_rates/screens/chart_screen.dart';
+import 'package:uae_gold_rates/screens/table_screen.dart';
 import 'utils/constants.dart';
 
 void main() {
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home:  LineGraphScreen(),
+      home:  TableScreen(),
     );
   }
 }

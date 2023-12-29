@@ -4,6 +4,8 @@
 import 'dart:ui';
 
 const String appName = "PriceTracker";
+const String appTitle = "UAE Price Charts";
+const List<String> columns = ["Date","Morning","Evening"];
 
 // Base theme color
 const Color baseThemeColor = Color(0xFF2196F3); // Replace with your chosen color code

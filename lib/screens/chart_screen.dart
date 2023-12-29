@@ -43,27 +43,31 @@ class _LineGraphScreenState extends State<LineGraphScreen> {
       appBar: AppBar(
         title: Text('Price Trends'),
       ),
-      body: LineChart(
-        LineChartData(
-          // Implement LineChartData configuration based on the fetched data
-          // Configure data, line styles, axes, etc. as needed for the line chart
-          // Example: use getLineSpots() to set up line data
-          titlesData: FlTitlesData(
-            // Configure titles for x and y axes
-            // Example: set titles for x and y axes
-          ),
-          borderData: FlBorderData(
-            // Configure borders for the chart
-            // Example: customize chart border
-          ),
-          lineBarsData: [
-            LineChartBarData(
-              spots: getLineSpots(),
-              // Configure line style, colors, etc.
-              // Example: set up line style and colors
+      body: Column(
+        children: [
+          LineChart(
+            LineChartData(
+              // Implement LineChartData configuration based on the fetched data
+              // Configure data, line styles, axes, etc. as needed for the line chart
+              // Example: use getLineSpots() to set up line data
+              titlesData: FlTitlesData(
+                // Configure titles for x and y axes
+                // Example: set titles for x and y axes
+              ),
+              borderData: FlBorderData(
+                // Configure borders for the chart
+                // Example: customize chart border
+              ),
+              lineBarsData: [
+                LineChartBarData(
+                  spots: getLineSpots(),
+                  // Configure line style, colors, etc.
+                  // Example: set up line style and colors
+                ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }
