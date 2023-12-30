@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:uae_gold_rates/models/csvData.dart';
+import 'package:uae_gold_rates/screens/graph_screen.dart';
 import 'package:uae_gold_rates/utils/constants.dart';
 import 'package:uae_gold_rates/services/data_handler_service.dart';
 
@@ -13,25 +14,27 @@ class TableScreen extends StatelessWidget {
         title: const Text(appTitle),
       ),
       body: SafeArea(
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          // mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            FutureBuilder<List<csvData>>(
-              future: CsvService().fetchPriceRates(),
-              builder: (context, snapshot) {
-                if (snapshot.connectionState == ConnectionState.waiting) {
-                  return const Center(child: CircularProgressIndicator());
-                } else if (snapshot.hasError) {
-                  return Center(child: Text('Error: ${snapshot.error}'));
-                } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                  return const Center(child: Text('No data available'));
-                } else {
-                  return Center(child: buildDataTableFromJson(snapshot.data!));
-                }
-              },
-            ),
-          ],
+        child: FutureBuilder<List<csvData>>(
+          future: CsvService().fetchPriceRates(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
+              return const Center(child: Text('No data available'));
+            } else {
+              return SingleChildScrollView(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(child: buildDataTableFromJson(snapshot.data!)),
+                    GraphScreen(dataList: snapshot.data!, )
+                  ],
+                ),
+              );
+            }
+          },
         ),
       ),
     );

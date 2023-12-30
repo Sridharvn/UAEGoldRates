@@ -10,7 +10,7 @@ class CsvService {
         // Parse CSV data and extract price rates
         // Implement CSV parsing logic here
         // Return a list of Map or a custom model containing the price rates
-        print(response.body);
+        // print(response.body);
 
         List<csvData> dataList = csvData.parseCsvToCsvData(response.body);
         print(dataList.map((e) => e.evening));

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:uae_gold_rates/screens/chart_screen.dart';
+import 'package:uae_gold_rates/screens/Old/chart_screen.dart';
 import 'package:uae_gold_rates/screens/table_screen.dart';
 import 'utils/constants.dart';
 

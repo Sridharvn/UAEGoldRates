@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:uae_gold_rates/models/csvData.dart';
-import '../services/data_handler_service.dart';
+import '../../services/data_handler_service.dart';
 
 class LineGraphScreen extends StatefulWidget {
   @override

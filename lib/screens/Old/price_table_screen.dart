@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../wigets/ad_widget.dart';
+import '../../wigets/ad_widget.dart';
 
 // ...
 class PriceTableScreen extends StatelessWidget {
