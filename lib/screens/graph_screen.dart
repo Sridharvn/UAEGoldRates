@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:uae_gold_rates/models/csvData.dart';
@@ -12,7 +14,8 @@ class GraphScreen extends StatelessWidget {
     return Container(
       child: Column(
         children: [
-          // Text(dataList.toString()),
+          // const SizedBox(height: 30,),
+          // const Text("Gold Rates",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
           GraphWidget(jsonData: dataList)
         ],
       ), // Use the property in your widget
@@ -24,23 +27,61 @@ class GraphWidget extends StatelessWidget {
 
   const GraphWidget({Key? key, required this.jsonData}) : super(key: key);
 
+  double findMinimum(){
+    double c=jsonData[0].morning;
+    for(int i=0;i<jsonData.length;i++)
+    {
+      if(jsonData[i].morning<c) {
+        c = jsonData[i].morning;
+      }}
+    return c;
+      }
+
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(16.0),
+      padding: const EdgeInsets.all(16.0),
       height: 300, // Set height as needed
       child: LineChart(
+
         LineChartData(
-          gridData: FlGridData(show: false),
+          // minY: 0,
+          minY:findMinimum()-5,
+          minX: -1,
+          // maxX: jsonData.length.toDouble(),
+          gridData: const FlGridData(show: false),
           titlesData: FlTitlesData(
-            // bottomTitles: AxisTitles(
-            //   showTitles: true,
-            //   reservedSize: 22,
-            //   getTitles: (value) {
-            //     // You can modify this logic based on your data
-            //     return jsonData[value.toInt()].date;
-            //   },
-            // ),
+            rightTitles: const AxisTitles(),
+            topTitles: const AxisTitles(),
+            leftTitles:  const AxisTitles(
+              sideTitles: SideTitles(
+                reservedSize: 50,
+                showTitles: true,
+                // getTitlesWidget: (value,meta){
+                //   if(value.toInt()%2==0){
+                //     return Text(jsonData[value.toInt()].morning.toString());
+                //   }
+                //   else{
+                //     return Text("");
+                //   }
+                // }
+              )
+            ),
+            bottomTitles: AxisTitles(
+              sideTitles: SideTitles(
+              showTitles: true,
+              reservedSize: 22,
+              getTitlesWidget: (value,meta) {
+                // You can modify this logic based on your data
+                if(value.toInt()%2==0){
+                return Text(jsonData[value.toInt()].date);
+                }
+                else{
+                  return const Text("");
+                }
+              },),
+
+            ),
           ),
           borderData: FlBorderData(show: true, border: Border.all(color: Colors.blueAccent, width: 1)),
           lineBarsData: [
@@ -50,11 +91,11 @@ class GraphWidget extends StatelessWidget {
                 final double y = jsonData[index].morning; // Access morning value from csvData
                 return FlSpot(x, y);
               }),
-              isCurved: true,
-              color: Colors.blueAccent, // This argument might not be necessary in the updated version
-              barWidth: 2,
-              isStrokeCapRound: true,
-              belowBarData: BarAreaData(show: false),
+              isCurved: false,
+              color: Colors.green, // This argument might not be necessary in the updated version
+              barWidth: 3,
+              isStrokeCapRound: false,
+              belowBarData: BarAreaData(show: false,color: Colors.amber.shade50),
             ),
           ],
         ),
