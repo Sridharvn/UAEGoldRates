@@ -13,10 +13,12 @@ class GraphScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // const SizedBox(height: 30,),
           // const Text("Gold Rates",style: TextStyle(fontSize: 32,fontWeight: FontWeight.bold),),
-          GraphWidget(jsonData: dataList)
+          Center(child: GraphWidget(jsonData: dataList))
         ],
       ), // Use the property in your widget
     );
@@ -73,8 +75,8 @@ class GraphWidget extends StatelessWidget {
               reservedSize: 22,
               getTitlesWidget: (value,meta) {
                 // You can modify this logic based on your data
-                if(value.toInt()%2==0){
-                return Text(jsonData[value.toInt()].date);
+                if(value.toInt()%2==0 && value.toInt()!=0&&value.toInt()!=jsonData.length-1){
+                return Text(jsonData[value.toInt()].date,);
                 }
                 else{
                   return const Text("");

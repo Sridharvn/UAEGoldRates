@@ -28,8 +28,10 @@ class TableScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    GraphScreen(
+                      dataList: snapshot.data!,
+                    ),
                     Center(child: buildDataTableFromJson(snapshot.data!)),
-                    GraphScreen(dataList: snapshot.data!, )
                   ],
                 ),
               );
@@ -42,7 +44,7 @@ class TableScreen extends StatelessWidget {
 
   Widget buildDataTableFromJson(List<csvData> jsonData) {
     return DataTable(
-      columns:  <DataColumn>[
+      columns: <DataColumn>[
         DataColumn(
           label: Text(
             columns[0],
@@ -66,8 +68,10 @@ class TableScreen extends StatelessWidget {
         return DataRow(
           cells: <DataCell>[
             DataCell(Text(data.date)), // Assuming 'name' is a field in csvData
-            DataCell(Text(data.morning.toString())), // Assuming 'age' is a field in csvData
-            DataCell(Text(data.evening.toString())), // Assuming 'role' is a field in csvData
+            DataCell(Text(data.morning
+                .toString())), // Assuming 'age' is a field in csvData
+            DataCell(Text(data.evening
+                .toString())), // Assuming 'role' is a field in csvData
           ],
         );
       }).toList(),
