@@ -28,7 +28,7 @@ class GraphScreen extends StatelessWidget {
 class GraphWidget extends StatelessWidget {
   final List<csvData> jsonData;
 
-  const GraphWidget({Key? key, required this.jsonData}) : super(key: key);
+   GraphWidget({Key? key, required this.jsonData}) : super(key: key);
 
   double findMinimum(){
     double c=jsonData[0].morning;
@@ -39,7 +39,7 @@ class GraphWidget extends StatelessWidget {
       }}
     return c;
       }
-
+List<int> values=[];
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -81,7 +81,8 @@ class GraphWidget extends StatelessWidget {
                 // You can modify this logic based on your data
 
 
-                if(value.toInt()>=0 ){
+                if(value.toInt()>=0 && !values.contains(value.toInt())){
+                  values.add(value.toInt());
                   // print(value.toInt());
     // if(value.toInt()%2==0 && value.toInt()!=0&&value.toInt()!=jsonData.length-1){
                 return Transform.translate(
