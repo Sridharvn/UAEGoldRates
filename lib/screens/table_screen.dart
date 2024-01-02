@@ -31,6 +31,7 @@ class TableScreen extends StatelessWidget {
                     GraphScreen(
                       dataList: snapshot.data!,
                     ),
+                    SizedBox(height: 60,),
                     Center(child: buildDataTableFromJson(snapshot.data!)),
                   ],
                 ),

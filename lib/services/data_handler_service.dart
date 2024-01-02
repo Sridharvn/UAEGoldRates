@@ -13,7 +13,7 @@ class CsvService {
         // print(response.body);
 
         List<csvData> dataList = csvData.parseCsvToCsvData(response.body);
-        print(dataList.map((e) => e.evening));
+        // print(dataList.map((e) => e.evening));
         return dataList;/* List of extracted price rates */;
       } else {
         throw Exception('Failed to fetch data');

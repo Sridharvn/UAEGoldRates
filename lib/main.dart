@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:uae_gold_rates/screens/Old/chart_screen.dart';
 import 'package:uae_gold_rates/screens/table_screen.dart';
-import 'utils/constants.dart';
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,10 +15,15 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
+      // theme: ThemeData(
+      //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+      //   useMaterial3: true,
+      // ),
+      theme: FlexThemeData.light(scheme: FlexScheme.green),
+        // The Mandy red, dark theme.
+        darkTheme: FlexThemeData.dark(scheme: FlexScheme.green),
+        // Use dark or light theme based on system setting.
+        themeMode: ThemeMode.system,
       home:  TableScreen(),
     );
   }

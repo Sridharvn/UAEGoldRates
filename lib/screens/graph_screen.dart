@@ -1,4 +1,5 @@
 import 'dart:ffi';
+import 'dart:math';
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
@@ -51,7 +52,10 @@ class GraphWidget extends StatelessWidget {
           minY:findMinimum()-5,
           minX: -1,
           // maxX: jsonData.length.toDouble(),
-          gridData: const FlGridData(show: false),
+          baselineX: 2,
+
+          // baselineY: 2,
+          gridData: const FlGridData(show: true),
           titlesData: FlTitlesData(
             rightTitles: const AxisTitles(),
             topTitles: const AxisTitles(),
@@ -75,8 +79,15 @@ class GraphWidget extends StatelessWidget {
               reservedSize: 22,
               getTitlesWidget: (value,meta) {
                 // You can modify this logic based on your data
-                if(value.toInt()%2==0 && value.toInt()!=0&&value.toInt()!=jsonData.length-1){
-                return Text(jsonData[value.toInt()].date,);
+                if(value.toInt()%2==0 ){
+    // if(value.toInt()%2==0 && value.toInt()!=0&&value.toInt()!=jsonData.length-1){
+                return Transform.translate(
+                  offset: Offset(-20.0,25.0),
+                  child: Transform.rotate(
+                      angle: -pi / 3, // Rotate by 45 degrees (pi/4 radians)
+
+                      child: Text(jsonData[value.toInt()].date,)),
+                );
                 }
                 else{
                   return const Text("");
@@ -85,7 +96,7 @@ class GraphWidget extends StatelessWidget {
 
             ),
           ),
-          borderData: FlBorderData(show: true, border: Border.all(color: Colors.blueAccent, width: 1)),
+          borderData: FlBorderData(show: true, border: Border.all(color: Colors.green, width: 0.1)),
           lineBarsData: [
             LineChartBarData(
               spots: List.generate(jsonData.length, (index) {
@@ -97,7 +108,7 @@ class GraphWidget extends StatelessWidget {
               color: Colors.green, // This argument might not be necessary in the updated version
               barWidth: 3,
               isStrokeCapRound: false,
-              belowBarData: BarAreaData(show: false,color: Colors.amber.shade50),
+              belowBarData: BarAreaData(show: true,color: Colors.green.shade50),
             ),
           ],
         ),
