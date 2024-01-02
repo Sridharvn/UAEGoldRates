@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:http/http.dart' as http;
 import 'package:uae_gold_rates/models/csvData.dart';
 import './../utils/constants.dart' as constants;
@@ -5,7 +7,11 @@ import './../utils/constants.dart' as constants;
 class CsvService {
   Future<List<csvData>> fetchPriceRates() async {
     try {
-      final response = await http.get(Uri.parse(constants.csvLocation));
+        final mainResponse = await http.get(Uri.parse(constants.mainJSON));
+        final Map<String, dynamic> responseData = json.decode(mainResponse.body);
+        final String csvLocation = responseData["currentMonth"];
+        // final response = await http.get(Uri.parse(constants.csvLocation));
+        final response = await http.get(Uri.parse(csvLocation));
       if (response.statusCode == 200) {
         // Parse CSV data and extract price rates
         // Implement CSV parsing logic here

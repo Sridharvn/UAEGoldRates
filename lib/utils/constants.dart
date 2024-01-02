@@ -10,6 +10,8 @@ const List<String> columns = ["Date","Morning","Evening"];
 // Base theme color
 const Color baseThemeColor = Color(0xFF2196F3); // Replace with your chosen color code
 
+// Main JSON Location
+const String mainJSON="https://www.uaegoldrates.com/uae-gold-rate.json";
 // CSV location
 const String jsonLocation = "https://www.keralagold.com/mobile/dubai-gold-rate.json"; // Replace with your CSV URL
 String csvLocation="https://www.uaegoldrates.com/dubai-gold-rate-dec-23.csv";
