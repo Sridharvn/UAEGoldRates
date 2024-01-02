@@ -52,7 +52,7 @@ class GraphWidget extends StatelessWidget {
           minY:findMinimum()-5,
           minX: -1,
           // maxX: jsonData.length.toDouble(),
-          baselineX: 2,
+          // baselineX: 10,
 
           // baselineY: 2,
           gridData: const FlGridData(show: true),
@@ -79,7 +79,10 @@ class GraphWidget extends StatelessWidget {
               reservedSize: 22,
               getTitlesWidget: (value,meta) {
                 // You can modify this logic based on your data
-                if(value.toInt()%2==0 ){
+
+
+                if(value.toInt()>=0 ){
+                  // print(value.toInt());
     // if(value.toInt()%2==0 && value.toInt()!=0&&value.toInt()!=jsonData.length-1){
                 return Transform.translate(
                   offset: Offset(-20.0,25.0),
@@ -108,7 +111,7 @@ class GraphWidget extends StatelessWidget {
               color: Colors.green, // This argument might not be necessary in the updated version
               barWidth: 3,
               isStrokeCapRound: false,
-              belowBarData: BarAreaData(show: true,color: Colors.green.shade50),
+              belowBarData: BarAreaData(show: true,color: Colors.green.withOpacity(0.1)),
             ),
           ],
         ),

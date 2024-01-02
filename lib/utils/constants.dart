@@ -3,8 +3,8 @@
 // App name
 import 'dart:ui';
 
-const String appName = "PriceTracker";
-const String appTitle = "UAE Price Charts";
+const String appName = "UAE Gold Price Charts and Table";
+const String appTitle = "UAE Gold Price Charts";
 const List<String> columns = ["Date","Morning","Evening"];
 
 // Base theme color

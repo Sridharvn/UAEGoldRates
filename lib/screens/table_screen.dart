@@ -28,10 +28,14 @@ class TableScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
+                    const SizedBox(height: 30,),
+                    const Text(appTitle,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                    const SizedBox(height: 30,),
                     GraphScreen(
                       dataList: snapshot.data!,
                     ),
-                    SizedBox(height: 60,),
+                    const SizedBox(height: 60,),
+                    const Text(appTitle,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
                     Center(child: buildDataTableFromJson(snapshot.data!)),
                   ],
                 ),
