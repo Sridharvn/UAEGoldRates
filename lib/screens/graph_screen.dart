@@ -85,7 +85,7 @@ class GraphWidget extends StatelessWidget {
                   // print(value.toInt());
     // if(value.toInt()%2==0 && value.toInt()!=0&&value.toInt()!=jsonData.length-1){
                 return Transform.translate(
-                  offset: Offset(-20.0,25.0),
+                  offset: const Offset(-20.0,30.0),
                   child: Transform.rotate(
                       angle: -pi / 3, // Rotate by 45 degrees (pi/4 radians)
 
@@ -99,7 +99,9 @@ class GraphWidget extends StatelessWidget {
 
             ),
           ),
-          borderData: FlBorderData(show: true, border: Border.all(color: Colors.green, width: 0.1)),
+          borderData: FlBorderData(border: const Border(left: BorderSide(color: Colors.green,width: 1),bottom: BorderSide(color: Colors.green,width: 1))),
+          // borderData: FlBorderData(show: true, border: Border.all(color: Colors.green, width: 0.1)),
+
           lineBarsData: [
             LineChartBarData(
               spots: List.generate(jsonData.length, (index) {
@@ -112,6 +114,7 @@ class GraphWidget extends StatelessWidget {
               barWidth: 3,
               isStrokeCapRound: false,
               belowBarData: BarAreaData(show: true,color: Colors.green.withOpacity(0.1)),
+
             ),
           ],
         ),
