@@ -1,3 +1,4 @@
+import 'package:flex_color_scheme/flex_color_scheme.dart';
 import 'package:flutter/material.dart';
 import 'package:uae_gold_rates/models/csvData.dart';
 import 'package:uae_gold_rates/screens/graph_screen.dart';
@@ -50,6 +51,7 @@ class TableScreen extends StatelessWidget {
 
   Widget buildDataTableFromJson(List<csvData> jsonData) {
     return DataTable(
+      // decoration: BoxDecoration(color: accentColor,),
       columns: <DataColumn>[
         DataColumn(
           label: Text(

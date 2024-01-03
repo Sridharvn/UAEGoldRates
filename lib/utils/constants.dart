@@ -3,13 +3,15 @@
 // App name
 import 'dart:ui';
 
+import 'package:flex_color_scheme/flex_color_scheme.dart';
+
 const String appName = "UAE Gold Price Charts and Table";
 const String appTitle = "UAE Gold Price Charts";
 const List<String> columns = ["Date","Morning","Evening"];
 
 // Base theme color
-const Color baseThemeColor = Color(0xFF2196F3); // Replace with your chosen color code
-
+const Color accentColor = FlexColor.greenLightPrimary;
+const FlexScheme baseColorScheme =  FlexScheme.green;
 // Main JSON Location
 const String mainJSON="https://www.uaegoldrates.com/uae-gold-rate.json";
 // CSV location

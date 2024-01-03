@@ -20,9 +20,9 @@ class MyApp extends StatelessWidget {
       //   colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
       //   useMaterial3: true,
       // ),
-      theme: FlexThemeData.light(scheme: FlexScheme.green),
+      theme: FlexThemeData.light(scheme: baseColorScheme),
         // The Mandy red, dark theme.
-        darkTheme: FlexThemeData.dark(scheme: FlexScheme.green,appBarBackground: FlexColor.greenLightPrimary),
+        darkTheme: FlexThemeData.dark(scheme:baseColorScheme,appBarBackground: accentColor),
         // Use dark or light theme based on system setting.
         themeMode: ThemeMode.system,
       home:  TableScreen(),

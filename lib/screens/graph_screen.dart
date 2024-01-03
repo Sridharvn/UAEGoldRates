@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:uae_gold_rates/models/csvData.dart';
+import 'package:uae_gold_rates/utils/constants.dart';
 
 class GraphScreen extends StatelessWidget {
   final List<csvData> dataList; // Define the property variable
@@ -55,6 +56,7 @@ List<int> values=[];
           // baselineX: 10,
 
           // baselineY: 2,
+
           gridData: const FlGridData(show: true),
           titlesData: FlTitlesData(
             rightTitles: const AxisTitles(),
@@ -100,7 +102,7 @@ List<int> values=[];
 
             ),
           ),
-          borderData: FlBorderData(border: const Border(left: BorderSide(color: Colors.green,width: 1),bottom: BorderSide(color: Colors.green,width: 1))),
+          borderData: FlBorderData(border: const Border(left: BorderSide(color: accentColor,width: 1),bottom: BorderSide(color: Colors.green,width: 1))),
           // borderData: FlBorderData(show: true, border: Border.all(color: Colors.green, width: 0.1)),
 
           lineBarsData: [
@@ -111,10 +113,10 @@ List<int> values=[];
                 return FlSpot(x, y);
               }),
               isCurved: false,
-              color: Colors.green, // This argument might not be necessary in the updated version
+              color: accentColor, // This argument might not be necessary in the updated version
               barWidth: 3,
               isStrokeCapRound: false,
-              belowBarData: BarAreaData(show: true,color: Colors.green.withOpacity(0.1)),
+              belowBarData: BarAreaData(show: true,color: accentColor.withOpacity(0.1)),
 
             ),
           ],
