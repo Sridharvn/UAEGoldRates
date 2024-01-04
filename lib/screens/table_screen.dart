@@ -35,17 +35,71 @@ class TableScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    const SizedBox(height: 30,),
-                    const Text(appTitle,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
-                     Text(lastDate!),
-                    Text(lastMorning!),
-                    Text(lastEvening!),
-                    const SizedBox(height: 30,),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    const Text(
+                      appTitle,
+                      style:
+                          TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                    ),
+                    const SizedBox(
+                      height: 30,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Today's Gold Rate : ",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          lastDate!,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          "Morning : ",
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                        Text(
+                          lastMorning!,
+                          style: const TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+                      const Text(
+                        "Evening : ",
+                        style: TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                      Text(
+                        lastEvening!,
+                        style: const TextStyle(
+                            fontSize: 20, fontWeight: FontWeight.bold),
+                      ),
+                    ]),
+                    const SizedBox(
+                      height: 30,
+                    ),
                     GraphScreen(
                       dataList: snapshot.data!,
                     ),
-                    const SizedBox(height: 60,),
-                    const Text(appTitle,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold)),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    const Text(appTitle,
+                        style: TextStyle(
+                            fontSize: 25, fontWeight: FontWeight.bold)),
                     Center(child: buildDataTableFromJson(snapshot.data!)),
                   ],
                 ),
