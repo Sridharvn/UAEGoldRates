@@ -26,12 +26,20 @@ class TableScreen extends StatelessWidget {
             } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
               return const Center(child: Text('No data available'));
             } else {
+              final List<csvData>? snapshotData = snapshot.data;
+              final String? lastDate = snapshotData?.last.date;
+              final String? lastMorning = snapshotData?.last.morning.toString();
+              final String? lastEvening = snapshotData?.last.evening.toString();
+
               return SingleChildScrollView(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     const SizedBox(height: 30,),
                     const Text(appTitle,style: TextStyle(fontSize: 25,fontWeight: FontWeight.bold),),
+                     Text(lastDate!),
+                    Text(lastMorning!),
+                    Text(lastEvening!),
                     const SizedBox(height: 30,),
                     GraphScreen(
                       dataList: snapshot.data!,
