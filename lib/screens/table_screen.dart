@@ -39,7 +39,7 @@ class TableScreen extends StatelessWidget {
                       height: 30,
                     ),
                     const Text(
-                      appTitle,
+                      chartHeading,
                       style:
                           TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                     ),
@@ -97,7 +97,7 @@ class TableScreen extends StatelessWidget {
                     const SizedBox(
                       height: 60,
                     ),
-                    const Text(appTitle,
+                    const Text(tableHeading,
                         style: TextStyle(
                             fontSize: 25, fontWeight: FontWeight.bold)),
                     Center(child: buildDataTableFromJson(snapshot.data!)),
